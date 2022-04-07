@@ -1,7 +1,7 @@
-package com.example.miniavito.service.impl.impl;
+package com.example.miniavito.service.impl;
 
 import com.example.miniavito.dao.AnnonceHeureSuplementaireDao;
-import com.example.miniavito.service.facade.facade.AnnonceHeureSuplementaireService;
+import com.example.miniavito.service.facade.AnnonceHeureSuplementaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
