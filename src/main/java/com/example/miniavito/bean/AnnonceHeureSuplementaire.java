@@ -11,11 +11,11 @@ public class AnnonceHeureSuplementaire {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
     private String ref;
-    private User user;
+    private String refUser;
     private  String titre;
     private  String description;
     private double montant;
-    private  Matiere matiere;
+    private  String refMatiere;
     private  String jourDisponnibilite;
 
     public Long getId() {
