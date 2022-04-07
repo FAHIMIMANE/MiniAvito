@@ -9,11 +9,11 @@ import javax.persistence.Id;
 public class AnnonceHeureSuplementaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private Long id;
+    private Long id;
     private String ref;
     private String refUser;
-    private  String titre;
-    private  String description;
+    private String titre;
+    private String description;
     private double montant;
     private  String refMatiere;
     private  String jourDisponnibilite;
