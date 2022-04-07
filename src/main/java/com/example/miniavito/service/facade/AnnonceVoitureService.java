@@ -1,4 +1,4 @@
-package com.example.miniavito.service.facade.facade;
+package com.example.miniavito.service.facade;
 
 import com.example.miniavito.bean.AnnonceVoiture;
 
