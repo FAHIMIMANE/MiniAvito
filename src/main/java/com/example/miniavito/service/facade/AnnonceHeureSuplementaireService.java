@@ -1,4 +1,4 @@
-package com.example.miniavito.service.facade;
+package com.example.miniavito.service.facade.facade;
 
 public interface AnnonceHeureSuplementaireService {
 }
