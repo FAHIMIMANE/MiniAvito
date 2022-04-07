@@ -1,4 +1,8 @@
 package com.example.miniavito.dao;
 
-public interface AnnonceHeureSuplementaireDao {
+import com.example.miniavito.bean.AnnonceHeureSuplementaire;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AnnonceHeureSuplementaireDao extends JpaRepository<AnnonceHeureSuplementaire, Long> {
+
 }
