@@ -10,7 +10,7 @@ public class Matiere {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-   private String ref;
+     private String ref;
     private String libelle;
 
     public Long getId() {
