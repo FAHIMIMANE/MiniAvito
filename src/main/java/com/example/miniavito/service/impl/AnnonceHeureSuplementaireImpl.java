@@ -47,20 +47,40 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
 
     public int save(AnnonceHeureSuplementaire annonceHeureSuplementaire) {
 
+            prepare(annonceHeureSuplementaire);
+            validate(annonceHeureSuplementaire);
+            if (findByRef(annonceHeureSuplementaire.getRef())==null){
+                return -4;
+            }else{
+                annonceHeureSuplementaireDao.save(annonceHeureSuplementaire);
+                return 1;
+            }
+
+    }
+
+    public int update(AnnonceHeureSuplementaire annonceHeureSuplementaire){
+        prepare(annonceHeureSuplementaire);
+        return  1;
+    }
+
+    public void prepare(AnnonceHeureSuplementaire annonceHeureSuplementaire){
+        User user=userService.findByRef(annonceHeureSuplementaire.getUser().getRef());
+        Matiere matiere=matiereService.findByRef(annonceHeureSuplementaire.getMatiere().getRef());
+        annonceHeureSuplementaire.setMatiere(matiere);
+        annonceHeureSuplementaire.setUser(user);
+    }
+
+    public int validate(AnnonceHeureSuplementaire annonceHeureSuplementaire){
         if(findByRef(annonceHeureSuplementaire.getRef()) != null){
             return -1;
-        }else if(isUserExist(userService.findByRef(annonceHeureSuplementaire.getRefUser())) == false){
+        }else if(isUserExist(annonceHeureSuplementaire.getUser()) == false){
             return -2;
-        }else if(isMatiereExist(matiereService.findByRef(annonceHeureSuplementaire.getRefMatiere())) == false){
+        }else if(isMatiereExist(annonceHeureSuplementaire.getMatiere()) == false){
             return -3;
-
         }else{
-            annonceHeureSuplementaireDao.save(annonceHeureSuplementaire);
             return 1;
         }
     }
-
-
 
 
     private boolean isUserExist(User user) {
