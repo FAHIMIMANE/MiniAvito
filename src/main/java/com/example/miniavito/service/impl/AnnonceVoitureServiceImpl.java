@@ -16,7 +16,10 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     public int update(AnnonceVoiture annonceVoiture) {
         if(findByRef(annonceVoiture.getRef()) == null){
             return -1;
-        }else{
+        }else if (annonceVoiture.getMontant()<0){
+            return -2;
+        }
+        else{
             annonceVoitureDao.save(annonceVoiture);
             return 1;
         }
@@ -31,7 +34,10 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
             return -1;
         }else if(annonceVoiture.getUser() == null){
             return -2;
-        }else{
+        }else if(annonceVoiture.getMontant()<0){
+            return -3;
+        }
+        else{
             return 1;
         }
     }
@@ -64,6 +70,11 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     @Override
     public int deleteByUserRef(String ref) {
         return annonceVoitureDao.deleteByUserRef(ref);
+    }
+
+    @Override
+    public List<AnnonceVoiture> findAll() {
+        return annonceVoitureDao.findAll();
     }
 
     @Override

@@ -8,7 +8,11 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface AnnonceVoitureService {
+
+    List<AnnonceVoiture> findAll();
+
     public int update(AnnonceVoiture annonceVoiture);
+
     public int save(AnnonceVoiture annonceVoiture);
 
     List<AnnonceVoiture> findByRefCarburant(String refCarburant);

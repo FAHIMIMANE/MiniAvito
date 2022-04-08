@@ -2,7 +2,6 @@ package com.example.miniavito.service.facade;
 
 import com.example.miniavito.bean.User;
 
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
