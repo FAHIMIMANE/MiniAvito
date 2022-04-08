@@ -6,6 +6,8 @@ import com.example.miniavito.service.facade.MatiereService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1/matiere")
 public class MatiereRest {
@@ -28,5 +30,9 @@ public class MatiereRest {
     @PutMapping("/")
     public int update(@RequestBody Matiere matiere) {
         return matiereService.update(matiere);
+    }
+  @GetMapping("/")
+    public List<Matiere> findAll() {
+        return matiereService.findAll();
     }
 }
