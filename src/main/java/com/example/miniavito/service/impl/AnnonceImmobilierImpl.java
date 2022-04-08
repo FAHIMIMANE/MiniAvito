@@ -68,7 +68,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
 
 
     public int deleteByReference(AnnonceImmobilier annonceImmobilier) {
-        return annonceImmobilierDao.deleteByReference(annonceImmobilier);
+        return annonceImmobilierDao.deleteByRef(annonceImmobilier);
     }
 
     public AnnonceImmobilier findByRef(String ref) {
