@@ -55,6 +55,13 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
         annonceImmobilierDao.save(annonceImmobilier);
 
     }
+
+    @Transactional
+    @Override
+    public int deleteByUserRef(String ref) {
+        return annonceImmobilierDao.deleteByUserRef(ref);
+    }
+    @Override
     public int update(AnnonceImmobilier annonceImmobilier){
         if (annonceImmobilier==null)
             return -1;
@@ -66,11 +73,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
             annonceImmobilierDao.save(annonceImmobilier);
         return 1;
     }
-    @Transactional
-    @Override
-    public int deleteByUserRef(String ref) {
-        return annonceImmobilierDao.deleteByUserRef(ref);
-    }
+
 
     private boolean isUserExist(User user){
         return user==null;

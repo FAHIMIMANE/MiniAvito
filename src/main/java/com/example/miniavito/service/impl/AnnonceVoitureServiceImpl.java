@@ -7,6 +7,7 @@ import com.example.miniavito.service.facade.AnnonceVoitureService;
 import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
         annonceVoiture.setUser(user);
     }
     private int validate(AnnonceVoiture annonceVoiture){
-        if(findByRef(annonceVoiture.getRef()) == null){
+        if(findByRef(annonceVoiture.getRef()) != null){
             return -1;
         }else if(annonceVoiture.getUser() == null){
             return -2;
@@ -67,7 +68,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     public List<AnnonceVoiture> findByUserRef(String ref) {
         return annonceVoitureDao.findByUserRef(ref);
     }
-
+@Transactional
     @Override
     public int deleteByUserRef(String ref) {
         return annonceVoitureDao.deleteByUserRef(ref);
