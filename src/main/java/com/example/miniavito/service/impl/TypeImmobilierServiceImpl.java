@@ -12,8 +12,5 @@ public class TypeImmobilierServiceImpl implements TypeImmobilierService {
  @Autowired
     private TypeImmobilierDao typeImmobilierDao;
 
-    @Override
-    public TypeImmobilier findByRef(String ref) {
-        return null;
-    }
+
 }
