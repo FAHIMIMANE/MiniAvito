@@ -11,4 +11,6 @@ public interface AnnonceImmobilierDao extends JpaRepository<AnnonceImmobilier,Lo
     int deleteByRef (String ref);
     int deleteByUserRef (String ref);
     AnnonceImmobilier findByRef(String ref);
+    AnnonceImmobilier findByRefVille(String refVille);
+    AnnonceImmobilier findByTypeAnnonce(String typeAnnonce);
 }

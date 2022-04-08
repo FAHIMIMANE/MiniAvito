@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
@@ -29,8 +30,42 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
         return res;
     }
 
+    @Override
+    public List<AnnonceImmobilier> findAll() {
+        return annonceImmobilierDao.findAll();
+    }
+    @Transactional
+    @Override
+    public int deleteByUserRef(String ref) {
+        return annonceImmobilierDao.deleteByUserRef(ref);
+    }
+    @Transactional
+    @Override
+    public int deleteByRef(String ref) {
+        return annonceImmobilierDao.deleteByRef(ref);
+    }
 
-    void prepare(AnnonceImmobilier annonceImmobilier){
+    @Override
+    public AnnonceImmobilier findByRef(String ref) {
+        return annonceImmobilierDao.findByRef(ref);
+    }
+
+    @Override
+    public AnnonceImmobilier findByRefVille(String refVille) {
+        return annonceImmobilierDao.findByRefVille(refVille);
+    }
+
+    @Override
+    public AnnonceImmobilier findByTypeAnnonce(String typeAnnonce) {
+        return annonceImmobilierDao.findByTypeAnnonce(typeAnnonce);
+    }
+
+    @Override
+    public int save(TypeImmobilier typeImmobilier) {
+        return typeImmobilierService.save(typeImmobilier);
+
+    }
+        void prepare(AnnonceImmobilier annonceImmobilier){
         TypeImmobilier typeImmobilier=typeImmobilierService.findByRef(annonceImmobilier.getTypeImmobilier().getRef());
         annonceImmobilier.setTypeImmobilier(typeImmobilier);
         User user=userService.findByRef(annonceImmobilier.getUser().getRef());
@@ -53,6 +88,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
         annonceImmobilierDao.save(annonceImmobilier);
 
     }
+
     public int update(AnnonceImmobilier annonceImmobilier){
         if (annonceImmobilier==null)
             return -1;
@@ -64,20 +100,6 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
             annonceImmobilierDao.save(annonceImmobilier);
         return 1;
     }
-    @Transactional
-    @Override
-    public int deleteByUserRef(String ref) {
-        return annonceImmobilierDao.deleteByUserRef(ref);
-    }
-
-    @Override
-    public AnnonceImmobilier findByRef(String ref) {
-        return annonceImmobilierDao.findByRef(ref);
-    }
-
-
-
-
     private boolean isUserExist(User user){
         return user==null;
     }
@@ -88,15 +110,4 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     private boolean isPrixNegatif(double prix){
         return prix<0;
     }
-
-
-
-    public int deleteByRef(String ref) {
-        return annonceImmobilierDao.deleteByRef(ref);
-    }
-
-
-
-    public int save(TypeImmobilier typeImmobilier) {
-        return typeImmobilierService.save(typeImmobilier);
-    }}
+   }

@@ -7,12 +7,12 @@ import com.example.miniavito.service.facade.AnnonceVoitureService;
 import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
 public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
-    //;;
     @Override
     public int update(AnnonceVoiture annonceVoiture) {
         if(findByRef(annonceVoiture.getRef()) == null){
@@ -69,6 +69,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     }
 
     @Override
+    @Transactional
     public int deleteByUserRef(String ref) {
         return annonceVoitureDao.deleteByUserRef(ref);
     }
@@ -79,6 +80,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     }
 
     @Override
+    @Transactional
     public int deleteByRef(String ref) {
         return annonceVoitureDao.deleteByRef(ref);
     }
