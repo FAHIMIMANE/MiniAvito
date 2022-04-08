@@ -1,7 +1,12 @@
 package com.example.miniavito.service.impl;
 
+import com.example.miniavito.bean.AnnonceHeureSuplementaire;
+import com.example.miniavito.bean.AnnonceImmobilier;
 import com.example.miniavito.bean.User;
 import com.example.miniavito.dao.UserDao;
+import com.example.miniavito.service.facade.AnnonceHeureSuplementaireService;
+import com.example.miniavito.service.facade.AnnonceImmobilierService;
+import com.example.miniavito.service.facade.AnnonceVoitureService;
 import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,30 +54,57 @@ public class UserServiceImpl implements UserService {
         return userDao.count();
     }
 
+
+    @Transactional
     @Override
     public int deleteByRef(String ref) {
-        return 0;
+        if(findByRef(ref) == null)
+            return -1;
+        else {
+            int  res1 = annonceHeureSuplementaire.deleteByUserRef(ref);
+            int  res2 = annonceImmobilier.deleteByUserRef(ref);
+            int  res3 = annonceVoitureService.deleteByUserRef(ref);
+            int res4 = userDao.deleteByRef(ref);
+            return res1+res2+res3+res4 ;
+
+        }
     }
+
 
     @Override
     public int seConnecter(User user) {
-        return 0;
+        {
+            User user1 = findByLogin(user.getLogin());
+            if (user == null)
+                return -1;
+            else if (!user.getPassword().equals(user.getPassword()))
+                return -2;
+            else
+                return 1;
+        }
     }
-
     @Override
-    public int bloquer(User user) {
-        return 0;
+    public int bloquer(String login) {
+        User user = findByLogin(login);
+        if (user == null)
+            return -1;
+        else if (user.isBlocked() == true)
+            return -2;
+        else {
+            user.setBlocked(true);
+            userDao.save(user);
+            return 1;
+        }
     }
 
-    @Override
-    public int update(User user) {
-        return 0;
-    }
-
-    @Transactional
 
 
     @Autowired
     private UserDao userDao;
-
+    @Autowired
+    private AnnonceHeureSuplementaireService annonceHeureSuplementaire;
+    @Autowired
+    private AnnonceImmobilierService annonceImmobilier;
+    @Autowired
+    private AnnonceVoitureService annonceVoitureService;
 }

@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserDao extends JpaRepository<User,Long> {
     User findByLogin(String login);
     User findByRef(String ref);
-
+    int deleteByRef(String ref);
 
     List<User> findByProf(boolean prof);
 }

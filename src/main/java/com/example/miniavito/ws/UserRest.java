@@ -46,6 +46,7 @@ public class UserRest {
         return userService.seConnecter( user);
     }
 
+
     @Autowired
     private UserServiceImpl userService;
 

@@ -13,6 +13,7 @@ public interface AnnonceHeureSuplementaireDao extends JpaRepository<AnnonceHeure
     List<AnnonceHeureSuplementaire> findByMontantGreaterThanEqual(double montant);
     List<AnnonceHeureSuplementaire> findByMatiereRef(String ref);
     List<AnnonceHeureSuplementaire> findByJourDisponnibilite(String jourDisponibilite);
+    int deleteByUserRef(String ref);
 
 
 }

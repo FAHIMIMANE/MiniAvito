@@ -3,7 +3,6 @@ package com.example.miniavito.service.facade;
 import com.example.miniavito.bean.Matiere;
 import com.example.miniavito.bean.User;
 
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -25,8 +24,10 @@ public interface UserService {
 
     public int deleteByRef(String ref);
     public int seConnecter(User user);
-    public int bloquer(User user);
-    int update (User user);
+
+   public  int bloquer(String login);
+
+
 
 
 

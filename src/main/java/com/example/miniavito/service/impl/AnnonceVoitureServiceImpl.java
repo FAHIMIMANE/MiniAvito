@@ -12,37 +12,70 @@ import java.util.List;
 
 @Service
 public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
-
+    //;;
     @Override
-    public int save(AnnonceVoiture annonceVoiture) {
-
-        if (findByRef(annonceVoiture.getRef()) != null) {
+    public int update(AnnonceVoiture annonceVoiture) {
+        if(findByRef(annonceVoiture.getRef()) == null){
             return -1;
-        } else if (isUserExist(userService.findByRef(annonceVoiture.getRefUser())) == false) {
+        }else if (annonceVoiture.getMontant()<0){
             return -2;
-        } else {
+        }
+        else{
             annonceVoitureDao.save(annonceVoiture);
             return 1;
         }
     }
 
-    private boolean isUserExist(User user) {
-        return user != null;
+    private void prepare(AnnonceVoiture annonceVoiture){
+        User user= userService.findByRef(annonceVoiture.getUser().getRef());
+        annonceVoiture.setUser(user);
     }
-//
-//    @Override
-//    public List<AnnonceVoiture> findByUserRef(String ref) {
-//        return annonceVoitureDao.findByUserRef(ref);
-//    }
-//
-//    @Override
-//    public int deleteByUserRef(String ref) {
-//        return annonceVoitureDao.deleteByUserRef(ref);
-//    }
+    private int validate(AnnonceVoiture annonceVoiture){
+        if(findByRef(annonceVoiture.getRef()) == null){
+            return -1;
+        }else if(annonceVoiture.getUser() == null){
+            return -2;
+        }else if(annonceVoiture.getMontant()<0){
+            return -3;
+        }
+        else{
+            return 1;
+        }
+    }
+
+    private void handlProcess(AnnonceVoiture annonceVoiture){
+        annonceVoitureDao.save(annonceVoiture);
+    }
+    @Override
+    public int save(AnnonceVoiture annonceVoiture) {
+        prepare(annonceVoiture);
+        int res = validate(annonceVoiture);
+        if( res < 0){
+            return -1;
+        }else{
+            handlProcess(annonceVoiture);
+            return 1;
+        }
+    }
 
     @Override
     public List<AnnonceVoiture> findByRefCarburant(String refCarburant) {
         return annonceVoitureDao.findByRefCarburant(refCarburant);
+    }
+
+    @Override
+    public List<AnnonceVoiture> findByUserRef(String ref) {
+        return annonceVoitureDao.findByUserRef(ref);
+    }
+
+    @Override
+    public int deleteByUserRef(String ref) {
+        return annonceVoitureDao.deleteByUserRef(ref);
+    }
+
+    @Override
+    public List<AnnonceVoiture> findAll() {
+        return annonceVoitureDao.findAll();
     }
 
     @Override
@@ -57,7 +90,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
 
     @Override
     public List<AnnonceVoiture> findByMontantAndRefModel(double montant, String refModel) {
-        return annonceVoitureDao.findByMontantAndRefModel(montant, refModel);
+        return annonceVoitureDao.findByMontantAndRefModel(montant,refModel);
     }
 
     @Override
@@ -75,6 +108,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
         return annonceVoitureDao.findByMontantGreaterThanEqual(montant);
     }
 
+
     @Autowired
     private  UserService userService;
     @Autowired
@@ -82,3 +116,4 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
 
 
 }
+
