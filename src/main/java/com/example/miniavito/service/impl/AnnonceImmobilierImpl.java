@@ -2,6 +2,7 @@ package com.example.miniavito.service.impl;
 
 import com.example.miniavito.bean.*;
 import com.example.miniavito.dao.AnnonceImmobilierDao;
+import com.example.miniavito.dao.TypeImmobilierDao;
 import com.example.miniavito.service.facade.AnnoceImmobilierService;
 import com.example.miniavito.service.facade.TypeImmobilierService;
 import com.example.miniavito.service.facade.UserService;
@@ -38,6 +39,9 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     public int deleteByUserRef(String ref) {
         return annonceImmobilierDao.deleteByUserRef(ref);
     }
+
+
+
     @Transactional
     @Override
     public int deleteByRef(String ref) {
@@ -74,12 +78,11 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
         return annonceImmobilierDao.findByPrixNonExistant();
     }
 
-    @Override
-    public int save(TypeImmobilier typeImmobilier) {
-        return typeImmobilierService.save(typeImmobilier);
-    }
 
-        void prepare(AnnonceImmobilier annonceImmobilier){
+
+
+
+    void prepare(AnnonceImmobilier annonceImmobilier){
         TypeImmobilier typeImmobilier=typeImmobilierService.findByRef(annonceImmobilier.getTypeImmobilier().getRef());
         annonceImmobilier.setTypeImmobilier(typeImmobilier);
         User user=userService.findByRef(annonceImmobilier.getUser().getRef());
