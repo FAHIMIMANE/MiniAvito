@@ -1,5 +1,6 @@
 package com.example.miniavito.service.facade;
 
+import com.example.miniavito.bean.Matiere;
 import com.example.miniavito.bean.User;
 
 
@@ -21,8 +22,10 @@ public interface UserService {
 
     public long count();
 
-    public void delete(User entity);
+    public int deleteByRef(String ref);
+    public int seConnecter(User user);
 
+   public  int bloquer(String login);
 
 
 
