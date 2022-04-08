@@ -6,6 +6,8 @@ import com.example.miniavito.bean.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface AnnonceImmobilierDao extends JpaRepository<AnnonceImmobilier,Long> {
     int deleteByRef (String ref);
@@ -13,4 +15,6 @@ public interface AnnonceImmobilierDao extends JpaRepository<AnnonceImmobilier,Lo
     AnnonceImmobilier findByRef(String ref);
     AnnonceImmobilier findByRefVille(String refVille);
     AnnonceImmobilier findByTypeAnnonce(String typeAnnonce);
+    List<AnnonceImmobilier> findByMontantLessThanEqual(double montant);
+    List<AnnonceImmobilier> findByMontantGreaterThanEqual(double montant);
 }

@@ -61,10 +61,20 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     }
 
     @Override
+    public List<AnnonceImmobilier> findByMontantLessThanEqual(double montant) {
+        return annonceImmobilierDao.findByMontantLessThanEqual(montant);
+    }
+
+    @Override
+    public List<AnnonceImmobilier> findByMontantGreaterThanEqual(double montant) {
+        return annonceImmobilierDao.findByMontantGreaterThanEqual(montant);
+    }
+
+    @Override
     public int save(TypeImmobilier typeImmobilier) {
         return typeImmobilierService.save(typeImmobilier);
-
     }
+
         void prepare(AnnonceImmobilier annonceImmobilier){
         TypeImmobilier typeImmobilier=typeImmobilierService.findByRef(annonceImmobilier.getTypeImmobilier().getRef());
         annonceImmobilier.setTypeImmobilier(typeImmobilier);
