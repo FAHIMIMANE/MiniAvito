@@ -48,11 +48,51 @@ public class UserServiceImpl implements UserService {
     public long count() {
         return userDao.count();
     }
+
+
     @Transactional
     @Override
-    public void delete(User entity) {
-        userDao.delete(entity);
+    public int deleteByRef(String ref) {
+        if(findByRef(ref) == null)
+            return -1;
+        else {
+            int  res1 = annonceHeureSuplementaire.deleteByUserRef(ref);
+            int  res2 = annonceImmobilier.deleteByUserRef(ref);
+            int  res3 = annonceVoitureService.deleteByUserRef(ref);
+            int res4 = userDao.deleteByRef(ref);
+            return res1+res2+res3+res4 ;
+
+        }
     }
+
+
+    @Override
+    public int seConnecter(User user) {
+        {
+            User user1 = findByLogin(user.getLogin());
+            if (user == null)
+                return -1;
+            else if (!user.getPassword().equals(user.getPassword()))
+                return -2;
+            else
+                return 1;
+        }
+    }
+    @Override
+    public int bloquer(String login) {
+        User user = findByLogin(login);
+        if (user == null)
+            return -1;
+        else if (user.isBlocked() == true)
+            return -2;
+        else {
+            user.setBlocked(true);
+            userDao.save(user);
+            return 1;
+        }
+    }
+
+
 
     @Autowired
     private UserDao userDao;
