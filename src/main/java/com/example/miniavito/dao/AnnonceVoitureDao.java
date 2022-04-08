@@ -15,9 +15,9 @@ public interface AnnonceVoitureDao extends JpaRepository<AnnonceVoiture, Long> {
 
     List<AnnonceVoiture> findByRefCarburant(String refCarburant);
 
-    List<AnnonceVoiture> findByUserRef(String ref);
-
-    int deleteByUserRef(String ref);
+//    List<AnnonceVoiture> findByUserRef(String ref);
+//
+////    int deleteByUserRef(String ref);
 
     int deleteByRef(String ref);
 
