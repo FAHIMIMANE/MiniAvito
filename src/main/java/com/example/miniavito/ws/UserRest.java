@@ -28,12 +28,12 @@ public class UserRest {
     public List<User> findAll() {
         return userService.findAll();
     }
-    @PostMapping("/")
+    @PostMapping("/save")
     public int save(@RequestBody User user) {
         return userService.save(user);
     }
 
-    @GetMapping("/")
+    @GetMapping("/count")
     public long count() {
         return userService.count();
     }
@@ -41,7 +41,7 @@ public class UserRest {
     public int deleteByRef(@PathVariable String ref) {
         return userService.deleteByRef(ref);
     }
-     @PostMapping("/")
+     @PostMapping("/login")
     public int seConnecter(@RequestBody User user) {
         return userService.seConnecter( user);
     }
