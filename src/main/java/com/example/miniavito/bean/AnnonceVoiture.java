@@ -2,7 +2,6 @@ package com.example.miniavito.bean;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
@@ -12,7 +11,6 @@ public class AnnonceVoiture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private String ref;
-
     @ManyToOne
     @JsonIgnore
     private User user;
