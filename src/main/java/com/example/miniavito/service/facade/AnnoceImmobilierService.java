@@ -4,4 +4,5 @@ import com.example.miniavito.bean.AnnonceImmobilier;
 
 public interface AnnoceImmobilierService {
 
+    int save(AnnonceImmobilier annonceImmobilier);
 }
