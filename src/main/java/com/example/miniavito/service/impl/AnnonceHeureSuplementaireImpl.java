@@ -48,13 +48,18 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
     public int save(AnnonceHeureSuplementaire annonceHeureSuplementaire) {
 
             prepare(annonceHeureSuplementaire);
-            validate(annonceHeureSuplementaire);
-            if (findByRef(annonceHeureSuplementaire.getRef())==null){
-                return -4;
+            int res=validate(annonceHeureSuplementaire);
+            if (res==1){
+                if (findByRef(annonceHeureSuplementaire.getRef())!=null){
+                    return -4;
+                }else{
+                    annonceHeureSuplementaireDao.save(annonceHeureSuplementaire);
+                    return 1;
+                }
             }else{
-                annonceHeureSuplementaireDao.save(annonceHeureSuplementaire);
-                return 1;
+                return -5;
             }
+
 
     }
 
@@ -66,8 +71,13 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
             return -2;
         }else if(isMatiereExist(annonceHeureSuplementaire.getMatiere()) == false) {
             return -3;
+        }else if(annonceHeureSuplementaire.getMontant()<0){
+            return -4;
+        }else{
+            annonceHeureSuplementaireDao.save(annonceHeureSuplementaire);
+            return 1;
         }
-        return  1;
+
     }
 
     public void prepare(AnnonceHeureSuplementaire annonceHeureSuplementaire){
@@ -84,7 +94,10 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
             return -2;
         }else if(isMatiereExist(annonceHeureSuplementaire.getMatiere()) == false){
             return -3;
-        }else{
+        }else if(annonceHeureSuplementaire.getMontant()<0){
+            return -4;
+        }
+        else{
             return 1;
         }
     }
