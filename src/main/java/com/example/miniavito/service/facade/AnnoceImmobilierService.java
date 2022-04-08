@@ -9,6 +9,9 @@ public interface AnnoceImmobilierService {
 
     int save(AnnonceImmobilier annonceImmobilier);
 
+
+    AnnonceImmobilier findByRef(String ref);
+
     @Transactional
     int deleteByRef(String ref);
 

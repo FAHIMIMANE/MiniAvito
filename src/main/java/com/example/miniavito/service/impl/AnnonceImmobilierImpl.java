@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Service
 public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
@@ -75,9 +74,8 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     public AnnonceImmobilier findByRef(String ref) {
         return annonceImmobilierDao.findByRef(ref);
     }
-    public List<AnnonceImmobilier> findAll() {
-        return  AnnonceImmobilierDao.findAll();
-    }
+
+
 
 
     private boolean isUserExist(User user){
