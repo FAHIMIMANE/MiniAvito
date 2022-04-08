@@ -7,7 +7,6 @@ import com.example.miniavito.service.facade.TypeImmobilierService;
 import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -51,12 +50,12 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     }
 
     @Override
-    public AnnonceImmobilier findByRefVille(String refVille) {
+    public List<AnnonceImmobilier> findByRefVille(String refVille) {
         return annonceImmobilierDao.findByRefVille(refVille);
     }
 
     @Override
-    public AnnonceImmobilier findByTypeAnnonce(String typeAnnonce) {
+    public List<AnnonceImmobilier> findByTypeAnnonce(String typeAnnonce) {
         return annonceImmobilierDao.findByTypeAnnonce(typeAnnonce);
     }
 
@@ -68,6 +67,11 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     @Override
     public List<AnnonceImmobilier> findByMontantGreaterThanEqual(double montant) {
         return annonceImmobilierDao.findByMontantGreaterThanEqual(montant);
+    }
+
+    @Override
+    public List<AnnonceImmobilier> findByPrixNonExistant() {
+        return annonceImmobilierDao.findByPrixNonExistant();
     }
 
     @Override
