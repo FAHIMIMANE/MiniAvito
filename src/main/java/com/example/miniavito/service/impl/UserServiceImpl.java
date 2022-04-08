@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -19,10 +20,7 @@ public class UserServiceImpl implements UserService {
     public User findByRef(String login) {
         return userDao.findByRef(login);
     }
-    @Override
-    public User findByProf(String login) {
-        return userDao.findByProf(login);
-    }
+
     @Override
     public List<User> findByProf(boolean prof) {
         return userDao.findByProf(prof);
