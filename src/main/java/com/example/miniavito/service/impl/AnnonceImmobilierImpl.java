@@ -10,6 +10,8 @@ import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 @Service
 public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
 
@@ -64,7 +66,11 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
             annonceImmobilierDao.save(annonceImmobilier);
         return 1;
     }
-
+    @Transactional
+    @Override
+    public int deleteByUserRef(String ref) {
+        return annonceImmobilierDao.deleteByUserRef(ref);
+    }
 
     private boolean isUserExist(User user){
         return user==null;
@@ -79,8 +85,8 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
 
 
 
-    public int deleteByReference(AnnonceImmobilier annonceImmobilier) {
-        return annonceImmobilierDao.deleteByRef(annonceImmobilier);
+    public int deleteByRef(String ref) {
+        return annonceImmobilierDao.deleteByRef(ref);
     }
 
     public AnnonceImmobilier findByRef(String ref) {

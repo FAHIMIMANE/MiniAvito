@@ -4,10 +4,7 @@ import com.example.miniavito.bean.AnnonceHeureSuplementaire;
 import com.example.miniavito.bean.AnnonceImmobilier;
 import com.example.miniavito.bean.User;
 import com.example.miniavito.dao.UserDao;
-import com.example.miniavito.service.facade.AnnonceHeureSuplementaireService;
-import com.example.miniavito.service.facade.AnnonceImmobilierService;
-import com.example.miniavito.service.facade.AnnonceVoitureService;
-import com.example.miniavito.service.facade.UserService;
+import com.example.miniavito.service.facade.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -104,7 +101,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private AnnonceHeureSuplementaireService annonceHeureSuplementaire;
     @Autowired
-    private AnnonceImmobilierService annonceImmobilier;
+    private AnnoceImmobilierService annonceImmobilier;
     @Autowired
     private AnnonceVoitureService annonceVoitureService;
 }

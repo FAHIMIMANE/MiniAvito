@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AnnonceImmobilierDao extends JpaRepository<AnnonceImmobilier,Long> {
-    int deleteByRef (AnnonceImmobilier annonceImmobilier);
+    int deleteByRef (String ref);
+    int deleteByUserRef (String ref);
     AnnonceImmobilier findByRef(String ref);
 
 
