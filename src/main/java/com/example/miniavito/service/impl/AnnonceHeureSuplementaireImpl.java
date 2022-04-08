@@ -23,6 +23,11 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
     @Autowired
     private MatiereService matiereService;
 
+    @Override
+    public int deleteByUserRef(String ref) {
+        return annonceHeureSuplementaireDao.deleteByUserRef(ref);
+    }
+
     public AnnonceHeureSuplementaire findByRef(String ref) {
         return annonceHeureSuplementaireDao.findByRef(ref);
     }

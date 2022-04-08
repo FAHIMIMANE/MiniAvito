@@ -11,4 +11,5 @@ public interface AnnonceHeureSuplementaireService {
     List<AnnonceHeureSuplementaire> findByMatiereRef(String ref);
     List<AnnonceHeureSuplementaire> findByJourDisponnibilite(String jourDisponibilite);
     public int save(AnnonceHeureSuplementaire annonceHeureSuplementaire);
+    int deleteByUserRef(String ref);
 }
