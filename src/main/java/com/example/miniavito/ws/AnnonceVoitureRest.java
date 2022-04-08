@@ -16,17 +16,17 @@ public class AnnonceVoitureRest {
         return annonceVoitureService.findByRefCarburant(refCarburant);
     }
 
-    @GetMapping("/ref/{ref}")
+    @GetMapping("/user/ref/{ref}")
     public List<AnnonceVoiture> findByUserRef(@PathVariable String ref) {
         return annonceVoitureService.findByUserRef(ref);
     }
 
-    @DeleteMapping("/user/ref/{ref}")
+    @DeleteMapping("/user-delete/ref/{ref}")
     public int deleteByUserRef(@PathVariable String ref) {
         return annonceVoitureService.deleteByUserRef(ref);
     }
 
-    @GetMapping("ref/{ref}")
+    @DeleteMapping("/ref/{ref}")
     public int deleteByRef(String ref) {
         return annonceVoitureService.deleteByRef(ref);
     }
