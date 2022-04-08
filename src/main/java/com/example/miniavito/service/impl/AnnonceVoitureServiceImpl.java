@@ -13,9 +13,33 @@ import java.util.List;
 @Service
 public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
 
+    private void prepare(AnnonceVoiture annonceVoiture){
+        User user= userService.findByRef(annonceVoiture.getUser().getRef());
+        annonceVoiture.setUser(user);
+    }
+    private int validate(AnnonceVoiture annonceVoiture){
+        if(findByRef(annonceVoiture.getRef()) == null){
+            return -1;
+        }else if(annonceVoiture.getUser() == null){
+            return -2;
+        }else{
+            return 1;
+        }
+    }
+
+    private void handlProcess(AnnonceVoiture annonceVoiture){
+        annonceVoitureDao.save(annonceVoiture);
+    }
     @Override
     public int save(AnnonceVoiture annonceVoiture) {
-        return 0;
+        prepare(annonceVoiture);
+        int res = validate(annonceVoiture);
+        if( res < 0){
+            return -1;
+        }else{
+            handlProcess(annonceVoiture);
+            return 1;
+        }
     }
 
     @Override
@@ -62,6 +86,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     public List<AnnonceVoiture> findByMontantGreaterThanEqual(double montant) {
         return annonceVoitureDao.findByMontantGreaterThanEqual(montant);
     }
+
 
     @Autowired
     private  UserService userService;

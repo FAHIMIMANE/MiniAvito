@@ -1,5 +1,6 @@
 package com.example.miniavito.service.impl;
 
+import com.example.miniavito.bean.User;
 import com.example.miniavito.dao.UserDao;
 import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public boolean findByRef(String ref) {
+    public User findByRef(String ref) {
         return userDao.findByRef(ref);
     }
 }

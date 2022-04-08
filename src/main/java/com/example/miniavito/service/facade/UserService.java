@@ -1,5 +1,7 @@
 package com.example.miniavito.service.facade;
 
+import com.example.miniavito.bean.User;
+
 public interface UserService {
-    boolean findByRef(String ref);
+    public User findByRef(String ref);
 }
