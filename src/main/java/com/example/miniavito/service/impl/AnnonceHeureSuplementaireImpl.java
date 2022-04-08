@@ -38,8 +38,9 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
         return annonceHeureSuplementaireDao.findByRefMatiere(refMatiere);
     }
 
-    public List<AnnonceHeureSuplementaire> findByJourDisponibilite(String jourDisponibilite){
-        return annonceHeureSuplementaireDao.findByJourDisponibilite(jourDisponibilite);
+
+    public List<AnnonceHeureSuplementaire> findByJourDisponnibilite(String jourDisponibilite){
+        return annonceHeureSuplementaireDao.findByJourDisponnibilite(jourDisponibilite);
     }
 
 
