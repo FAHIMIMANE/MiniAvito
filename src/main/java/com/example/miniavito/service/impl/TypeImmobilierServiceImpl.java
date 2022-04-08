@@ -12,8 +12,5 @@ public class TypeImmobilierServiceImpl implements TypeImmobilierService {
  @Autowired
     private TypeImmobilierDao typeImmobilierDao;
 
-    @Override
-    public TypeImmobilier findByReference(String reference) {
-        return typeImmobilierDao.findByReference(reference);
-    }
+
 }

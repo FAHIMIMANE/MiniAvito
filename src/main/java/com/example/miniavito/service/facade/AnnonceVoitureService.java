@@ -26,4 +26,6 @@ public interface AnnonceVoitureService {
     List<AnnonceVoiture> findByMontantLessThanEqual(double montant);
 
     List<AnnonceVoiture> findByMontantGreaterThanEqual(double montant);
+
 }
+

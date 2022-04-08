@@ -1,5 +1,6 @@
 package com.example.miniavito.service.impl;
 
+import com.example.miniavito.bean.AnnonceImmobilier;
 import com.example.miniavito.dao.AnnonceImmobilierDao;
 import com.example.miniavito.service.facade.AnnoceImmobilierService;
 import com.example.miniavito.service.facade.TypeImmobilierService;
@@ -12,8 +13,6 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     @Autowired
     private AnnonceImmobilierDao annonceImmobilierDao;
     @Autowired
-  private TypeImmobilierService typeImmobilierService;
-
-
+    private TypeImmobilierService typeImmobilierService;
 
 }
