@@ -11,7 +11,6 @@ public interface UserDao extends JpaRepository<User,Long> {
     User findByLogin(String login);
     User findByRef(String ref);
 
-    List<User> findByProf(boolean prof);
-    int deleteByRef(String ref);
 
+    List<User> findByProf(boolean prof);
 }

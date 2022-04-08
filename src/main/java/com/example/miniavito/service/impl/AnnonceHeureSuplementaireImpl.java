@@ -34,8 +34,8 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
         return annonceHeureSuplementaireDao.findByMontantGreaterThanEqual(montant);
     }
 
-    public List<AnnonceHeureSuplementaire> findByRefMatiere(String refMatiere){
-        return annonceHeureSuplementaireDao.findByRefMatiere(refMatiere);
+    public List<AnnonceHeureSuplementaire> findByMatiereRef(String ref){
+        return annonceHeureSuplementaireDao.findByMatiereRef(ref);
     }
 
 
@@ -48,19 +48,36 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
     public int save(AnnonceHeureSuplementaire annonceHeureSuplementaire) {
 
             prepare(annonceHeureSuplementaire);
-            validate(annonceHeureSuplementaire);
-            if (findByRef(annonceHeureSuplementaire.getRef())==null){
-                return -4;
+            int res=validate(annonceHeureSuplementaire);
+            if (res==1){
+                if (findByRef(annonceHeureSuplementaire.getRef())!=null){
+                    return -4;
+                }else{
+                    annonceHeureSuplementaireDao.save(annonceHeureSuplementaire);
+                    return 1;
+                }
             }else{
-                annonceHeureSuplementaireDao.save(annonceHeureSuplementaire);
-                return 1;
+                return -5;
             }
+
 
     }
 
     public int update(AnnonceHeureSuplementaire annonceHeureSuplementaire){
         prepare(annonceHeureSuplementaire);
-        return  1;
+        if(findByRef(annonceHeureSuplementaire.getRef()) == null){
+            return -1;
+        }else if(isUserExist(annonceHeureSuplementaire.getUser()) == false){
+            return -2;
+        }else if(isMatiereExist(annonceHeureSuplementaire.getMatiere()) == false) {
+            return -3;
+        }else if(annonceHeureSuplementaire.getMontant()<0){
+            return -4;
+        }else{
+            annonceHeureSuplementaireDao.save(annonceHeureSuplementaire);
+            return 1;
+        }
+
     }
 
     public void prepare(AnnonceHeureSuplementaire annonceHeureSuplementaire){
@@ -77,7 +94,10 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
             return -2;
         }else if(isMatiereExist(annonceHeureSuplementaire.getMatiere()) == false){
             return -3;
-        }else{
+        }else if(annonceHeureSuplementaire.getMontant()<0){
+            return -4;
+        }
+        else{
             return 1;
         }
     }
