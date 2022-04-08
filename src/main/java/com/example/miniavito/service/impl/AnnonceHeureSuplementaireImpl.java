@@ -34,8 +34,8 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
         return annonceHeureSuplementaireDao.findByMontantGreaterThanEqual(montant);
     }
 
-    public List<AnnonceHeureSuplementaire> findByRefMatiere(String refMatiere){
-        return annonceHeureSuplementaireDao.findByRefMatiere(refMatiere);
+    public List<AnnonceHeureSuplementaire> findByMatiereRef(String ref){
+        return annonceHeureSuplementaireDao.findByMatiereRef(ref);
     }
 
 
@@ -60,6 +60,13 @@ public class AnnonceHeureSuplementaireImpl implements AnnonceHeureSuplementaireS
 
     public int update(AnnonceHeureSuplementaire annonceHeureSuplementaire){
         prepare(annonceHeureSuplementaire);
+        if(findByRef(annonceHeureSuplementaire.getRef()) == null){
+            return -1;
+        }else if(isUserExist(annonceHeureSuplementaire.getUser()) == false){
+            return -2;
+        }else if(isMatiereExist(annonceHeureSuplementaire.getMatiere()) == false) {
+            return -3;
+        }
         return  1;
     }
 
