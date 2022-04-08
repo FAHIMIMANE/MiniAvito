@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/matiere")
 public class MatiereRest {
+
     @Autowired
     private MatiereService matiereService;
 

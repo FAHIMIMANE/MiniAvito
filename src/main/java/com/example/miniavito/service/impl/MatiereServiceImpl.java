@@ -14,15 +14,16 @@ public class MatiereServiceImpl implements MatiereService {
     @Autowired
     private MatiereDao matiereDao;
 
-    public Matiere findByRef(String ref){
+    public Matiere findByRef(String ref) {
         return matiereDao.findByRef(ref);
     }
 
+
     @Override
     public int save(Matiere matiere) {
-        if(findByRef(matiere.getRef()) != null) {
+        if (findByRef(matiere.getRef()) != null) {
             return -1;
-        }else{
+        } else {
             matiereDao.save(matiere);
             return 1;
         }
