@@ -68,4 +68,5 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     @Autowired
     private AnnonceVoitureDao annonceVoitureDao;
 
+
 }

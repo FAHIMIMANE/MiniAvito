@@ -25,4 +25,9 @@ public class MatiereServiceImpl implements MatiereService {
         }
 
     }
+
+    @Override
+    public int deleteByRef(String ref) {
+        return matiereDao.deleteByRef(ref);
+    }
 }

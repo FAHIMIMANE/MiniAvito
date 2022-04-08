@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MatiereDao extends JpaRepository<Matiere,Long> {
     Matiere findByRef(String ref);
+    int deleteByRef (String ref );
 
 }
