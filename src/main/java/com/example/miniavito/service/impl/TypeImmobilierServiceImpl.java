@@ -13,4 +13,13 @@ public class TypeImmobilierServiceImpl implements TypeImmobilierService {
     private TypeImmobilierDao typeImmobilierDao;
 
 
+    @Override
+    public TypeImmobilier findByRef(String ref) {
+        return null;
+    }
+
+    @Override
+    public int save(TypeImmobilier typeImmobilier) {
+        return 0;
+    }
 }

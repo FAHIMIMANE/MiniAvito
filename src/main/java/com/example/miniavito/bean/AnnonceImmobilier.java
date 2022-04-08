@@ -1,9 +1,6 @@
 package com.example.miniavito.bean;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class AnnonceImmobilier {
@@ -11,8 +8,10 @@ public class AnnonceImmobilier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String ref;
-    private String refUser;
-    private String refTypeImmobilier;
+    @ManyToOne
+    private User user;
+    @ManyToOne
+    private TypeImmobilier typeImmobilier;
     private String typeAnnonce;
     private String refVille;
     private double prix;
@@ -34,20 +33,20 @@ public class AnnonceImmobilier {
         this.ref = ref;
     }
 
-    public String getRefUser() {
-        return refUser;
+    public User getUser() {
+        return user;
     }
 
-    public void setRefUser(String refUser) {
-        this.refUser = refUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getRefTypeImmobilier() {
-        return refTypeImmobilier;
+    public TypeImmobilier getTypeImmobilier() {
+        return typeImmobilier;
     }
 
-    public void setRefTypeImmobilier(String refTypeImmobilier) {
-        this.refTypeImmobilier = refTypeImmobilier;
+    public void setTypeImmobilier(TypeImmobilier typeImmobilier) {
+        this.typeImmobilier = typeImmobilier;
     }
 
     public String getTypeAnnonce() {
