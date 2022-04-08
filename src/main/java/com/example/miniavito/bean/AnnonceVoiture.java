@@ -1,10 +1,7 @@
 package com.example.miniavito.bean;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class AnnonceVoiture {
@@ -12,7 +9,8 @@ public class AnnonceVoiture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private String ref;
-    private String refUser;
+    @ManyToOne
+    private User user;
     private String titre;
     private String description;
     private double montant;
@@ -36,12 +34,12 @@ public class AnnonceVoiture {
         this.ref = ref;
     }
 
-    public String getRefUser() {
-        return refUser;
+    public User getUser() {
+        return user;
     }
 
-    public void setRefUser(String refUser) {
-        this.refUser = refUser;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getTitre() {
