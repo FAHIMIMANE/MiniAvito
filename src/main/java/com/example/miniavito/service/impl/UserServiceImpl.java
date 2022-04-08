@@ -48,11 +48,29 @@ public class UserServiceImpl implements UserService {
     public long count() {
         return userDao.count();
     }
-    @Transactional
+
     @Override
-    public void delete(User entity) {
-        userDao.delete(entity);
+    public int deleteByRef(String ref) {
+        return 0;
     }
+
+    @Override
+    public int seConnecter(User user) {
+        return 0;
+    }
+
+    @Override
+    public int bloquer(User user) {
+        return 0;
+    }
+
+    @Override
+    public int update(User user) {
+        return 0;
+    }
+
+    @Transactional
+
 
     @Autowired
     private UserDao userDao;
