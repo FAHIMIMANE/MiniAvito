@@ -6,4 +6,5 @@ import com.example.miniavito.bean.Matiere;
 public interface MatiereService {
 
     Matiere findByRef(String ref);
+    public int save(Matiere matiere);
 }

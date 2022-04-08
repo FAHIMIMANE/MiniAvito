@@ -10,5 +10,5 @@ public interface AnnonceHeureSuplementaireService {
     List<AnnonceHeureSuplementaire> findByMontantGreaterThanEqual(double montant);
     List<AnnonceHeureSuplementaire> findByRefMatiere(String refMatiere);
     List<AnnonceHeureSuplementaire> findByJourDisponibilite(String jourDisponibilite);
-
+    public int save(AnnonceHeureSuplementaire annonceHeureSuplementaire);
 }
