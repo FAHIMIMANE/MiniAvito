@@ -5,6 +5,7 @@ import com.example.miniavito.dao.MatiereDao;
 import com.example.miniavito.service.facade.MatiereService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class MatiereServiceImpl implements MatiereService {
@@ -25,9 +26,26 @@ public class MatiereServiceImpl implements MatiereService {
         }
 
     }
-
+    @Transactional
     @Override
     public int deleteByRef(String ref) {
         return matiereDao.deleteByRef(ref);
     }
+
+    @Override
+    public int update(Matiere matiere) {
+        if(findByRef(matiere.getRef())==null) {
+            return -1;
+        }
+        else {
+            matiereDao.save(matiere);
+            return 1;
+        }
+    }
+
+
+
+
+
+
 }

@@ -5,6 +5,7 @@ import com.example.miniavito.dao.UserDao;
 import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
@@ -15,14 +16,12 @@ public class UserServiceImpl implements UserService {
     public User findByLogin(String login) {
         return userDao.findByLogin(login);
     }
+
     @Override
-    public User findByRef(String login) {
-        return userDao.findByRef(login);
+    public User findByRef(String ref) {
+        return null;
     }
-    @Override
-    public User findByProf(String login) {
-        return userDao.findByProf(login);
-    }
+
     @Override
     public List<User> findByProf(boolean prof) {
         return userDao.findByProf(prof);
@@ -58,5 +57,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDao userDao;
+
 
 }

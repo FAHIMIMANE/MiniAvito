@@ -21,4 +21,12 @@ public class MatiereRest {
     public Matiere findByRef(@PathVariable String ref) {
         return matiereService.findByRef(ref);
     }
+    @DeleteMapping("/ref/{re}")
+    public int deleteByRef(@PathVariable String ref) {
+        return matiereService.deleteByRef(ref);
+    }
+    @PutMapping("/")
+    public int update(@RequestBody Matiere matiere) {
+        return matiereService.update(matiere);
+    }
 }
