@@ -16,7 +16,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     public int save(AnnonceVoiture annonceVoiture) {
         if (findByRef(annonceVoiture.getRef()) != null) {
             return -1;
-        } else if (isClientExist(annonceVoiture.getUser()) == false) {
+        } else if (isUserExist(annonceVoiture.getUser()) == false) {
             return -2;
         } else {
             annonceVoitureDao.save(annonceVoiture);
@@ -24,7 +24,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
         }
     }
 
-    private boolean isClientExist(User user) {
+    private boolean isUserExist(User user) {
         return user != null;
     }
 
@@ -64,13 +64,13 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     }
 
     @Override
-    public List<AnnonceVoiture> findByMontantSuperieur(double mt) {
-        return annonceVoitureDao.findByMontantSuperieur(mt);
+    public List<AnnonceVoiture> findByMontantLessThanEqual(double montant) {
+        return annonceVoitureDao.findByMontantLessThanEqual(montant);
     }
 
     @Override
-    public List<AnnonceVoiture> findByMontantInferieur(double mt) {
-        return annonceVoitureDao.findByMontantInferieur(mt);
+    public List<AnnonceVoiture> findByMontantGreaterThanEqual(double montant) {
+        return annonceVoitureDao.findByMontantGreaterThanEqual(montant);
     }
 
     @Autowired

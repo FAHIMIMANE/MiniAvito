@@ -23,9 +23,7 @@ public interface AnnonceVoitureService {
 
     AnnonceVoiture findByRef(String ref);
 
-    @Query("select v from AnnonceVoiture v where v.montant >= :mt")
-    List<AnnonceVoiture> findByMontantSuperieur(@Param("mt") double mt);
+    List<AnnonceVoiture> findByMontantLessThanEqual(double montant);
 
-    @Query("select v from AnnonceVoiture v where v.montant <= :mt")
-    List<AnnonceVoiture> findByMontantInferieur(@Param("mt") double mt);
+    List<AnnonceVoiture> findByMontantGreaterThanEqual(double montant);
 }

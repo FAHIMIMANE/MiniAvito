@@ -1,5 +1,6 @@
 package com.example.miniavito.dao;
 
+import com.example.miniavito.bean.AnnonceHeureSuplementaire;
 import com.example.miniavito.bean.AnnonceImmobilier;
 import com.example.miniavito.bean.AnnonceVoiture;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -26,11 +27,9 @@ public interface AnnonceVoitureDao extends JpaRepository<AnnonceVoiture, Long> {
 
     AnnonceVoiture findByRef(String ref);
 
-    @Query("select v from AnnonceVoiture v where v.montant >= :mt")
-    List<AnnonceVoiture> findByMontantSuperieur(@Param("mt") double mt);
+    List<AnnonceVoiture> findByMontantLessThanEqual(double montant);
 
-    @Query("select v from AnnonceVoiture v where v.montant <= :mt")
-    List<AnnonceVoiture> findByMontantInferieur(@Param("mt") double mt);
+    List<AnnonceVoiture> findByMontantGreaterThanEqual(double montant);
 
 
 }
