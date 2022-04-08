@@ -53,6 +53,18 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
         annonceImmobilierDao.save(annonceImmobilier);
 
     }
+    int update(AnnonceImmobilier annonceImmobilier){
+        if (annonceImmobilier==null)
+            return -1;
+        else if (isUserExist(annonceImmobilier.getUser())==true)
+            return -2;
+        else if (isPrixNegatif(annonceImmobilier.getPrix())==true)
+            return -4;
+        else
+            annonceImmobilierDao.save(annonceImmobilier);
+        return 1;
+    }
+
 
     private boolean isUserExist(User user){
         return user==null;
