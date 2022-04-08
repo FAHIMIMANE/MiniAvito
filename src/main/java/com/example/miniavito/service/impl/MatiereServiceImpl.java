@@ -15,10 +15,6 @@ public class MatiereServiceImpl implements MatiereService {
         return matiereDao.findByRef(ref);
     }
 
-    public void update(Matiere matiere) {
-        if (findByRef(matiere.getRef()) != null)
-            matiereDao.save(matiere);
-    }
 
     @Override
     public int save(Matiere matiere) {

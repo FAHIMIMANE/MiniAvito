@@ -8,5 +8,4 @@ public interface MatiereService {
     Matiere findByRef(String ref);
     public int save(Matiere matiere);
     int deleteByRef (String ref );
-    void update(Matiere matiere);
 }
