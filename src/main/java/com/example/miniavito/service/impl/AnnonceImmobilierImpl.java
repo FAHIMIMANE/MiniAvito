@@ -26,7 +26,8 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
       if(res>0){
           handleprocess(annonceImmobilier);
       }
-}
+        return res;
+    }
 
 
     void prepare(AnnonceImmobilier annonceImmobilier){
