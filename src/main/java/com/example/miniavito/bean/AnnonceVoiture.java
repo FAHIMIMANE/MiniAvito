@@ -1,6 +1,8 @@
 package com.example.miniavito.bean;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,6 +12,7 @@ public class AnnonceVoiture {
     private  Long id;
     private String ref;
     @ManyToOne
+    @JsonIgnore
     private User user;
     private String titre;
     private String description;
