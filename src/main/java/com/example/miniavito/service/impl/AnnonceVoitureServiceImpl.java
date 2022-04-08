@@ -12,6 +12,15 @@ import java.util.List;
 
 @Service
 public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
+    @Override
+    public int update(AnnonceVoiture annonceVoiture) {
+        if(findByRef(annonceVoiture.getRef()) == null){
+            return -1;
+        }else{
+            annonceVoitureDao.save(annonceVoiture);
+            return 1;
+        }
+    }
 
     private void prepare(AnnonceVoiture annonceVoiture){
         User user= userService.findByRef(annonceVoiture.getUser().getRef());
