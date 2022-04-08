@@ -22,9 +22,9 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     @Override
     public int save(AnnonceImmobilier annonceImmobilier) {
         prepare(annonceImmobilier);
-      int res=validate(AnnonceImmobilier annonceImmobilier);
+      int res=validate(annonceImmobilier);
       if(res>0){
-          handleprocess(AnnonceImmobilier annonceImmobilier);
+          handleprocess(annonceImmobilier);
       }
 }
 
