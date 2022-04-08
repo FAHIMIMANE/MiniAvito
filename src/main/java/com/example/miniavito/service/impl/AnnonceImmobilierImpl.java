@@ -94,7 +94,6 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
             return 1;
     }
     void handleprocess(AnnonceImmobilier annonceImmobilier){
-
         annonceImmobilierDao.save(annonceImmobilier);
 
     }
