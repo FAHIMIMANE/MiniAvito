@@ -9,7 +9,8 @@ import java.util.List;
 @Repository
 public interface UserDao extends JpaRepository<User,Long> {
     User findByLogin(String login);
-    User findByRef(String ref);
+    User findByRef(String login);
+    User findByProf(String login);
 
     List<User> findByProf(boolean prof);
 }
