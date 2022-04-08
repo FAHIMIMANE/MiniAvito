@@ -22,5 +22,9 @@ public class AnnonceHeureSuplementaireRest {
     public AnnonceHeureSuplementaire findByRef(@PathVariable String ref) {
         return annonceHeureSuplementaireService.findByRef(ref);
     }
+    @PutMapping("/update")
+    public void update(@RequestBody AnnonceHeureSuplementaire annonceHeureSuplementaire){
+        annonceHeureSuplementaireService.update(annonceHeureSuplementaire);
+    }
 
 }

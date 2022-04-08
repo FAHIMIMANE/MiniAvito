@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/matiere")
 public class MatiereRest {
+    @PutMapping("/update")
+    public void update(@RequestBody Matiere matiere) {
+        matiereService.update(matiere);
+    }
+
     @Autowired
     private MatiereService matiereService;
 
