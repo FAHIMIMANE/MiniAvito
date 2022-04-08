@@ -4,6 +4,7 @@ import com.example.miniavito.bean.AnnonceVoiture;
 import com.example.miniavito.bean.User;
 import com.example.miniavito.dao.AnnonceVoitureDao;
 import com.example.miniavito.service.facade.AnnonceVoitureService;
+import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +15,10 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
 
     @Override
     public int save(AnnonceVoiture annonceVoiture) {
+
         if (findByRef(annonceVoiture.getRef()) != null) {
             return -1;
-        } else if (isUserExist(annonceVoiture.getUser()) == false) {
+        } else if (isUserExist(userService.findByRef(annonceVoiture.getRefUser())) == false) {
             return -2;
         } else {
             annonceVoitureDao.save(annonceVoiture);
@@ -27,16 +29,16 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     private boolean isUserExist(User user) {
         return user != null;
     }
-
-    @Override
-    public List<AnnonceVoiture> findByUserRef(String ref) {
-        return annonceVoitureDao.findByUserRef(ref);
-    }
-
-    @Override
-    public int deleteByUserRef(String ref) {
-        return annonceVoitureDao.deleteByUserRef(ref);
-    }
+//
+//    @Override
+//    public List<AnnonceVoiture> findByUserRef(String ref) {
+//        return annonceVoitureDao.findByUserRef(ref);
+//    }
+//
+//    @Override
+//    public int deleteByUserRef(String ref) {
+//        return annonceVoitureDao.deleteByUserRef(ref);
+//    }
 
     @Override
     public List<AnnonceVoiture> findByRefCarburant(String refCarburant) {
@@ -73,6 +75,8 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
         return annonceVoitureDao.findByMontantGreaterThanEqual(montant);
     }
 
+    @Autowired
+    private  UserService userService;
     @Autowired
     private AnnonceVoitureDao annonceVoitureDao;
 

@@ -9,8 +9,7 @@ public class AnnonceVoiture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private String ref;
-    @ManyToOne
-    private User user;
+    private String refUser;
     private String titre;
     private String description;
     private double montant;
@@ -34,12 +33,12 @@ public class AnnonceVoiture {
         this.ref = ref;
     }
 
-    public User getUser() {
-        return user;
+    public String getRefUser() {
+        return refUser;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setRefUser(String refUser) {
+        this.refUser = refUser;
     }
 
     public String getTitre() {

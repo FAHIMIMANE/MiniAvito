@@ -7,9 +7,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface AnnonceVoitureService {
-    List<AnnonceVoiture> findByUserRef(String ref);
-
-    int deleteByUserRef(String ref);
+//    List<AnnonceVoiture> findByUserRef(String ref);
+//
+//    int deleteByUserRef(String ref);
 
     public int save(AnnonceVoiture annonceVoiture);
 
