@@ -1,8 +1,6 @@
 package com.example.miniavito.service.impl;
 
-import com.example.miniavito.bean.AnnonceImmobilier;
-import com.example.miniavito.bean.TypeImmobilier;
-import com.example.miniavito.bean.User;
+import com.example.miniavito.bean.*;
 import com.example.miniavito.dao.AnnonceImmobilierDao;
 import com.example.miniavito.service.facade.AnnoceImmobilierService;
 import com.example.miniavito.service.facade.TypeImmobilierService;
@@ -11,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
@@ -72,6 +71,15 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
         return annonceImmobilierDao.deleteByUserRef(ref);
     }
 
+    @Override
+    public AnnonceImmobilier findByRef(String ref) {
+        return annonceImmobilierDao.findByRef(ref);
+    }
+    public List<AnnonceImmobilier> findAll() {
+        return  AnnonceImmobilierDao.findAll();
+    }
+
+
     private boolean isUserExist(User user){
         return user==null;
     }
@@ -89,9 +97,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
         return annonceImmobilierDao.deleteByRef(ref);
     }
 
-    public AnnonceImmobilier findByRef(String ref) {
-        return annonceImmobilierDao.findByRef(ref);
-    }
+
 
     public int save(TypeImmobilier typeImmobilier) {
         return typeImmobilierService.save(typeImmobilier);

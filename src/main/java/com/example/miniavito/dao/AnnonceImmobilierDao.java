@@ -1,5 +1,6 @@
 package com.example.miniavito.dao;
 
+import com.example.miniavito.bean.AnnonceHeureSuplementaire;
 import com.example.miniavito.bean.AnnonceImmobilier;
 import com.example.miniavito.bean.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +11,4 @@ public interface AnnonceImmobilierDao extends JpaRepository<AnnonceImmobilier,Lo
     int deleteByRef (String ref);
     int deleteByUserRef (String ref);
     AnnonceImmobilier findByRef(String ref);
-
-
 }
