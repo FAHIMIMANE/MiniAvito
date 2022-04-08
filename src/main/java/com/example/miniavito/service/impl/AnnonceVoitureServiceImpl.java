@@ -13,7 +13,6 @@ import java.util.List;
 
 @Service
 public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
-    //;;
     @Override
     public int update(AnnonceVoiture annonceVoiture) {
         if(findByRef(annonceVoiture.getRef()) == null){
@@ -70,6 +69,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     }
 @Transactional
     @Override
+    @Transactional
     public int deleteByUserRef(String ref) {
         return annonceVoitureDao.deleteByUserRef(ref);
     }
@@ -80,6 +80,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     }
 
     @Override
+    @Transactional
     public int deleteByRef(String ref) {
         return annonceVoitureDao.deleteByRef(ref);
     }
