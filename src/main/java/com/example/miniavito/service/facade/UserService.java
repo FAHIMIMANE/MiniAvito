@@ -12,7 +12,6 @@ public interface UserService {
 
     public User findByRef(String login) ;
 
-    public User findByProf(String login);
 
     public List<User> findByProf(boolean prof) ;
 

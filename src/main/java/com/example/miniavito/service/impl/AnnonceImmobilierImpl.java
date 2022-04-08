@@ -22,15 +22,38 @@ public class AnnonceImmobilierImpl implements AnnonceImmobilierService {
 
     @Override
     public int save(AnnonceImmobilier annonceImmobilier){
-       if(findByRef(annonceImmobilier.getRef())!=null)
-           return -1;
-       else if(UserService.findByRef(annonceImmobilier.getRefUser())==true)
-           return -2;
-       else if(TypeImmobilierService.findByRef(annonceImmobilier.getRefTypeImmobilier()==true))
-            return -3;
+        prepare(annonceImmobilier);
+        int res = validate(annonceImmobilier);
+        if (res>0){
+            handleprocess(annonceImmobilier);
+        }
+    }
 
 
+    void prepare(AnnonceImmobilier annonceImmobilier){
+        TypeImmobilier typeImmobilier=typeImmobilierService.findByRef(annonceImmobilier.getTypeImmobilier().getRef());
+        annonceImmobilier.setTypeImmobilier(typeImmobilier);
+        User user = userService.findByRef(annonceImmobilier.getUser().getRef());
+        annonceImmobilier.setUser(user);
      }
+     int validate(AnnonceImmobilier annonceImmobilier){
+         if(findByRef(annonceImmobilier.getRef())!=null)
+             return -1;
+         else if(isUserExist(annonceImmobilier.getUser())==true)
+             return -2;
+         else if(isTypeImmobilierExist(annonceImmobilier.getTypeImmobilier())==true))
+             return -3;
+         else
+             return 1;
+     }
+     void handleprocess(AnnonceImmobilier annonceImmobilier) {
+
+
+        annonceImmobilierDao.save(annonceImmobilier);
+
+
+    }
+
 
 
      private boolean isUserExist(User user){
