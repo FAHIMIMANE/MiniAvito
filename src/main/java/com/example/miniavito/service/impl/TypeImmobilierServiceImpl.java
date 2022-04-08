@@ -1,5 +1,6 @@
 package com.example.miniavito.service.impl;
 
+import com.example.miniavito.bean.TypeImmobilier;
 import com.example.miniavito.dao.TypeImmobilierDao;
 import com.example.miniavito.service.facade.TypeImmobilierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,4 +12,8 @@ public class TypeImmobilierServiceImpl implements TypeImmobilierService {
  @Autowired
     private TypeImmobilierDao typeImmobilierDao;
 
+    @Override
+    public TypeImmobilier findByReference(String reference) {
+        return typeImmobilierDao.findByReference(reference);
+    }
 }
