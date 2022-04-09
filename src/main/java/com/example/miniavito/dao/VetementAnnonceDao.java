@@ -11,10 +11,10 @@ import java.util.List;
 public interface VetementAnnonceDao extends JpaRepository<VetementAnnonce,Long> {
     VetementAnnonce findByRef(String ref);
     VetementAnnonce findByTaille(String taille);
-    VetementAnnonce findByPrixIsLessThanEqual(String prix);
+    VetementAnnonce findByPrixIsLessThanEqual(double prix);
     VetementAnnonce findByMarque (String marque);
     int deleteByRef(String ref);
-    VetementAnnonce findByPrixIsGreaterThanEqual(String prix);
+    VetementAnnonce findByPrixIsGreaterThanEqual(double prix);
     VetementAnnonce findByStyle(String style);
     VetementAnnonce findByCategories(String categories);
 

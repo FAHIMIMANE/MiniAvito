@@ -23,7 +23,7 @@ public class VetementAnnonceRest {
         return vetementAnnonceService.findByTaille(taille);
     }
     @GetMapping("/findByPrixIsLessThanEqual/prix/{prix}")
-    public VetementAnnonce findByPrixIsLessThanEqual(@PathVariable String prix) {
+    public VetementAnnonce findByPrixIsLessThanEqual(@PathVariable double prix) {
         return vetementAnnonceService.findByPrixIsLessThanEqual(prix);
     }
   @GetMapping("/")
@@ -44,7 +44,7 @@ public class VetementAnnonceRest {
         return vetementAnnonceService.deleteByRef(ref);
     }
   @GetMapping("/findByPrixIsGreaterThanEqual/prix/{prix}")
-    public VetementAnnonce findByPrixIsGreaterThanEqual(@PathVariable String prix) {
+    public VetementAnnonce findByPrixIsGreaterThanEqual(@PathVariable double prix) {
         return vetementAnnonceService.findByPrixIsGreaterThanEqual(prix);
     }
   @GetMapping("/style/{style}")

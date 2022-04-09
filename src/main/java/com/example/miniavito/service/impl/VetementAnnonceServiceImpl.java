@@ -26,7 +26,7 @@ public class VetementAnnonceServiceImpl implements VetementAnnonceService {
     }
 
     @Override
-    public VetementAnnonce findByPrixIsLessThanEqual(String prix) {
+    public VetementAnnonce findByPrixIsLessThanEqual(double prix) {
         return findByPrixIsLessThanEqual(prix);
     }
 
@@ -81,7 +81,7 @@ public class VetementAnnonceServiceImpl implements VetementAnnonceService {
     }
 
     @Override
-    public VetementAnnonce findByPrixIsGreaterThanEqual(String prix) {
+    public VetementAnnonce findByPrixIsGreaterThanEqual(double prix) {
         return vetementAnnonceDao.findByPrixIsGreaterThanEqual(prix);
     }
 

@@ -8,12 +8,12 @@ import java.util.List;
 public interface VetementAnnonceService {
     VetementAnnonce findByRef(String ref);
     VetementAnnonce findByTaille(String taille);
-    VetementAnnonce findByPrixIsLessThanEqual(String prix);
+    VetementAnnonce findByPrixIsLessThanEqual(double prix);
     List <VetementAnnonce> findAll ();
     VetementAnnonce findByMarque (String marque);
     int save(VetementAnnonce vetementAnnonce);
     int deleteByRef(String ref);
-    VetementAnnonce findByPrixIsGreaterThanEqual(String prix);
+    VetementAnnonce findByPrixIsGreaterThanEqual(double prix);
     VetementAnnonce findByStyle(String style);
     VetementAnnonce findByCategories(String categories);
     public int update(VetementAnnonce vetementAnnonce );
