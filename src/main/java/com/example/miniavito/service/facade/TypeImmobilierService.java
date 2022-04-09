@@ -1,5 +1,6 @@
 package com.example.miniavito.service.facade;
 
+import com.example.miniavito.bean.AnnonceImmobilier;
 import com.example.miniavito.bean.TypeImmobilier;
 import com.example.miniavito.bean.User;
 

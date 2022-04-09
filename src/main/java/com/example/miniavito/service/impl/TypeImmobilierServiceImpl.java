@@ -20,6 +20,10 @@ public class TypeImmobilierServiceImpl implements TypeImmobilierService {
 
     @Override
     public int save(TypeImmobilier typeImmobilier) {
-        return 0;
+        if (typeImmobilierDao.findByRef(typeImmobilier.getRef())!=null)
+        return -1;
+        else
+            typeImmobilierDao.save(typeImmobilier);
+        return 1;
     }
 }

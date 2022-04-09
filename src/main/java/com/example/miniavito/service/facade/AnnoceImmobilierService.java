@@ -23,7 +23,7 @@ public interface AnnoceImmobilierService {
     @Transactional
     int deleteByUserRef(String ref);
 
-    int save(TypeImmobilier typeImmobilier);
+
 
     int update(AnnonceImmobilier annonceImmobilier);
 }
