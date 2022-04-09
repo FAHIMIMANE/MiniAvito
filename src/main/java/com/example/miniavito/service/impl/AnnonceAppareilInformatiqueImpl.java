@@ -1,8 +1,11 @@
 package com.example.miniavito.service.impl;
 
 import com.example.miniavito.bean.AnnonceAppareilInformatique;
+import com.example.miniavito.bean.Categorie;
+import com.example.miniavito.bean.User;
 import com.example.miniavito.dao.AnnonceAppareilInformatiqueDao;
 import com.example.miniavito.service.facade.AnnonceAppareilInformatiqueService;
+import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +16,8 @@ import java.util.List;
 public class AnnonceAppareilInformatiqueImpl implements AnnonceAppareilInformatiqueService {
     @Autowired
     private AnnonceAppareilInformatiqueDao annonceAppareilInformatiqueDao;
+    @Autowired
+    private UserService userService;
 
     public List<AnnonceAppareilInformatique> findByPrixGreaterThan(double prix) {
         return annonceAppareilInformatiqueDao.findByPrixGreaterThan(prix);
@@ -47,12 +52,15 @@ public class AnnonceAppareilInformatiqueImpl implements AnnonceAppareilInformati
     }
 
     private void handleprocess(AnnonceAppareilInformatique annonceAppareilInformatique) {
+        annonceAppareilInformatiqueDao.save(annonceAppareilInformatique);
     }
 
     private int validate(AnnonceAppareilInformatique annonceAppareilInformatique) {
     }
 
     private void prepare(AnnonceAppareilInformatique annonceAppareilInformatique) {
+        User user=userService.findByRef(annonceAppareilInformatique.getUser().getRef());
+
     }
 
     public List<AnnonceAppareilInformatique> findAll() {
