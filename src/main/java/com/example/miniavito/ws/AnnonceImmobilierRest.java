@@ -60,9 +60,7 @@ public class AnnonceImmobilierRest {
         return annoceImmobilierService.deleteByUserRef(ref);
     }
 
-    public int save( TypeImmobilier typeImmobilier) {
-        return annoceImmobilierService.save(typeImmobilier);
-    }
+
 
     @Autowired
     private AnnoceImmobilierService annoceImmobilierService;
