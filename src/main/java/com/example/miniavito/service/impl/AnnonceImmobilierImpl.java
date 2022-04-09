@@ -8,7 +8,8 @@ import com.example.miniavito.service.facade.TypeImmobilierService;
 import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service
@@ -42,7 +43,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
 
 
 
-    @Transactional
+   @Transactional
     @Override
     public int deleteByRef(String ref) {
         return annonceImmobilierDao.deleteByRef(ref);
