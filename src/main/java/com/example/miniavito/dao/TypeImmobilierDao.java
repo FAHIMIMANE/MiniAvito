@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TypeImmobilierDao extends JpaRepository<TypeImmobilier,Long> {
+
   TypeImmobilier findByRef(String ref);
 
 }

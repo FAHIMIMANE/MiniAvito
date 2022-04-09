@@ -1,16 +1,16 @@
 package com.example.miniavito.service.impl;
 
-import com.example.miniavito.bean.AnnonceImmobilier;
-import com.example.miniavito.bean.TypeImmobilier;
-import com.example.miniavito.bean.User;
+import com.example.miniavito.bean.*;
 import com.example.miniavito.dao.AnnonceImmobilierDao;
+import com.example.miniavito.dao.TypeImmobilierDao;
 import com.example.miniavito.service.facade.AnnoceImmobilierService;
 import com.example.miniavito.service.facade.TypeImmobilierService;
 import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
@@ -30,6 +30,57 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
       }
         return res;
     }
+
+    @Override
+    public List<AnnonceImmobilier> findAll() {
+        return annonceImmobilierDao.findAll();
+    }
+    @Transactional
+    @Override
+    public int deleteByUserRef(String ref) {
+        return annonceImmobilierDao.deleteByUserRef(ref);
+    }
+
+
+
+   @Transactional
+    @Override
+    public int deleteByRef(String ref) {
+        return annonceImmobilierDao.deleteByRef(ref);
+    }
+
+    @Override
+    public AnnonceImmobilier findByRef(String ref) {
+        return annonceImmobilierDao.findByRef(ref);
+    }
+
+    @Override
+    public List<AnnonceImmobilier> findByRefVille(String refVille) {
+        return annonceImmobilierDao.findByRefVille(refVille);
+    }
+
+    @Override
+    public List<AnnonceImmobilier> findByTypeAnnonce(String typeAnnonce) {
+        return annonceImmobilierDao.findByTypeAnnonce(typeAnnonce);
+    }
+
+    @Override
+    public List<AnnonceImmobilier> findByMontantLessThanEqual(double montant) {
+        return annonceImmobilierDao.findByMontantLessThanEqual(montant);
+    }
+
+    @Override
+    public List<AnnonceImmobilier> findByMontantGreaterThanEqual(double montant) {
+        return annonceImmobilierDao.findByMontantGreaterThanEqual(montant);
+    }
+
+    @Override
+    public List<AnnonceImmobilier> findByPrixNonExistant() {
+        return annonceImmobilierDao.findByPrixNonExistant();
+    }
+
+
+
 
 
     void prepare(AnnonceImmobilier annonceImmobilier){
@@ -51,10 +102,10 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
             return 1;
     }
     void handleprocess(AnnonceImmobilier annonceImmobilier){
-
         annonceImmobilierDao.save(annonceImmobilier);
 
     }
+
     public int update(AnnonceImmobilier annonceImmobilier){
         if (annonceImmobilier==null)
             return -1;
@@ -66,12 +117,6 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
             annonceImmobilierDao.save(annonceImmobilier);
         return 1;
     }
-    @Transactional
-    @Override
-    public int deleteByUserRef(String ref) {
-        return annonceImmobilierDao.deleteByUserRef(ref);
-    }
-
     private boolean isUserExist(User user){
         return user==null;
     }
@@ -82,17 +127,4 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     private boolean isPrixNegatif(double prix){
         return prix<0;
     }
-
-
-
-    public int deleteByRef(String ref) {
-        return annonceImmobilierDao.deleteByRef(ref);
-    }
-
-    public AnnonceImmobilier findByRef(String ref) {
-        return annonceImmobilierDao.findByRef(ref);
-    }
-
-    public int save(TypeImmobilier typeImmobilier) {
-        return typeImmobilierService.save(typeImmobilier);
-    }}
+   }

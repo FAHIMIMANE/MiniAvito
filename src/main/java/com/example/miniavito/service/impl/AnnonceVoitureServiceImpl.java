@@ -7,13 +7,13 @@ import com.example.miniavito.service.facade.AnnonceVoitureService;
 import com.example.miniavito.service.facade.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
-    //;;
     @Override
     public int update(AnnonceVoiture annonceVoiture) {
         if(findByRef(annonceVoiture.getRef()) == null){

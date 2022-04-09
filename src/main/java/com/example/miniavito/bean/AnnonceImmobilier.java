@@ -15,6 +15,7 @@ public class AnnonceImmobilier {
     private String typeAnnonce;
     private String refVille;
     private double prix;
+    private double montant;
     private String description;
 
     public Long getId() {
