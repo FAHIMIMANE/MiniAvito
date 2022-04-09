@@ -39,12 +39,12 @@ public class AnnonceImmobilierRest {
         return annoceImmobilierService.findByTypeAnnonce(typeAnnonce);
     }
    @GetMapping("/findByMontantLessThanEqual/montant/{montant}")
-    public List<AnnonceImmobilier> findByMontantLessThanEqual(@PathVariable double montant) {
-        return annoceImmobilierService.findByMontantLessThanEqual(montant);
+    public List<AnnonceImmobilier> findByMontantLessThanEqual(@PathVariable double prix) {
+        return annoceImmobilierService.findByPrixLessThanEqual(prix);
     }
     @GetMapping("/findByMontantGreaterThanEqual/montant/{montant}")
-    public List<AnnonceImmobilier> findByMontantGreaterThanEqual(@PathVariable double montant) {
-        return annoceImmobilierService.findByMontantGreaterThanEqual(montant);
+    public List<AnnonceImmobilier> findByMontantGreaterThanEqual(@PathVariable double prix) {
+        return annoceImmobilierService.findByPrixGreaterThanEqual(prix);
     }
   @GetMapping("/findByPrixNonExistant")
     public List<AnnonceImmobilier> findByPrixNonExistant() {

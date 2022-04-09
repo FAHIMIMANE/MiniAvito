@@ -12,7 +12,6 @@ public class AnnonceVoiture {
     private  Long id;
     private String ref;
     @ManyToOne
-    @JsonIgnore
     private User user;
     private String titre;
     private String description;
