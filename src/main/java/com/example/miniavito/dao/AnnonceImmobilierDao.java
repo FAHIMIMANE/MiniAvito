@@ -12,6 +12,7 @@ import java.util.List;
 public interface AnnonceImmobilierDao extends JpaRepository<AnnonceImmobilier,Long> {
     int deleteByRef (String ref);
     int deleteByUserRef (String ref);
+    int deleteByTypeImmobilierRef(String ref);
     AnnonceImmobilier findByRef(String ref);
     List<AnnonceImmobilier>  findByRefVille(String refVille);
     List<AnnonceImmobilier>  findByTypeAnnonce(String typeAnnonce);

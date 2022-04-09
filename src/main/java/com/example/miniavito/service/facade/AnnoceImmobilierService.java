@@ -20,7 +20,7 @@ public interface AnnoceImmobilierService {
 
     int deleteByRef(String ref);
 
-
+    int deleteByTypeImmobilierRef(String ref);
     int deleteByUserRef(String ref);
 
 
