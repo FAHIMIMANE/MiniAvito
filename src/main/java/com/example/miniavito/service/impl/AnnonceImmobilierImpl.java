@@ -126,7 +126,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
    /* private boolean isTypeImmobilierExist(TypeImmobilier typeImmobilier){
         return typeImmobilier==null;*/
 
-}
+
     private boolean isPrixNegatif(double prix){
         return prix<0;
     }
