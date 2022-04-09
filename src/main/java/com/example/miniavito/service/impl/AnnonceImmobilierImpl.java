@@ -108,7 +108,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
 
     public int update(AnnonceImmobilier annonceImmobilier){
 
-        if (annonceImmobilier==null)
+        if (annonceImmobilierDao.findByRef(annonceImmobilier.getRef())==null)
             return -1;
         else if (isUserExist(annonceImmobilier.getUser())==true)
             return -2;
