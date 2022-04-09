@@ -41,7 +41,9 @@ public class MatiereServiceImpl implements MatiereService {
             return -1;
         }
         else {
-            matiereDao.save(matiere);
+            Matiere m = findByRef(matiere.getRef());
+            m.setLibelle(matiere.getLibelle());
+            matiereDao.save(m);
             return 1;
         }
     }

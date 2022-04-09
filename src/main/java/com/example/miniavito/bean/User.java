@@ -13,39 +13,8 @@ public class User {
     private String password;
     private boolean prof;
     private boolean blocked ;
-    @OneToMany(mappedBy = "user")
-    private List<AnnonceHeureSuplementaire> annonceHeureSuplementaires;
-    @OneToMany(mappedBy = "user")
-    private List<AnnonceVoiture> annoncevoitures;
-
-    @OneToMany(mappedBy = "user")
-    private List<AnnonceImmobilier> annonceImmobiliers;
 
 
-
-    public List<AnnonceHeureSuplementaire> getAnnonceHeureSuplementaires() {
-        return annonceHeureSuplementaires;
-    }
-
-    public void setAnnonceHeureSuplementaires(List<AnnonceHeureSuplementaire> annonceHeureSuplementaires) {
-        this.annonceHeureSuplementaires = annonceHeureSuplementaires;
-    }
-
-    public List<AnnonceVoiture> getAnnoncevoitures() {
-        return annoncevoitures;
-    }
-
-    public void setAnnoncevoitures(List<AnnonceVoiture> annoncevoitures) {
-        this.annoncevoitures = annoncevoitures;
-    }
-
-    public List<AnnonceImmobilier> getAnnonceImmobiliers() {
-        return annonceImmobiliers;
-    }
-
-    public void setAnnonceImmobiliers(List<AnnonceImmobilier> annonceImmobiliers) {
-        this.annonceImmobiliers = annonceImmobiliers;
-    }
 
 
 

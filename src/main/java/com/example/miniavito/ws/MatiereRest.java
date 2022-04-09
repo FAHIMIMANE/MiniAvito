@@ -24,7 +24,7 @@ public class MatiereRest {
     public Matiere findByRef(@PathVariable String ref) {
         return matiereService.findByRef(ref);
     }
-    @DeleteMapping("/ref/{re}")
+    @DeleteMapping("/ref/{ref}")
     public int deleteByRef(@PathVariable String ref) {
         return matiereService.deleteByRef(ref);
     }

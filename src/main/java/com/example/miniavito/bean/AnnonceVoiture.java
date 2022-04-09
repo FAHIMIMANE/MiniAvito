@@ -9,7 +9,7 @@ public class AnnonceVoiture {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
     private String ref;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private User user;
     private String titre;
     private String description;
