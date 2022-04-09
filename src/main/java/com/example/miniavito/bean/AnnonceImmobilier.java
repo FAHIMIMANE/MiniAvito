@@ -1,5 +1,7 @@
 package com.example.miniavito.bean;
 
+import org.springframework.data.repository.cdi.Eager;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,8 +10,8 @@ public class AnnonceImmobilier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String ref;
-    @ManyToOne
-    private User user;
+    @ManyToOne (fetch = FetchType.LAZY)
+    private  User user;
     @ManyToOne
     private TypeImmobilier typeImmobilier;
     private String typeAnnonce;

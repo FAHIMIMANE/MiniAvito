@@ -31,7 +31,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
         annonceVoiture.setUser(user);
     }
     private int validate(AnnonceVoiture annonceVoiture){
-        if(findByRef(annonceVoiture.getRef()) == null){
+        if(findByRef(annonceVoiture.getRef()) != null){
             return -1;
         }else if(annonceVoiture.getUser() == null){
             return -2;
