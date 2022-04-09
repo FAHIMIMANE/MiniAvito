@@ -2,8 +2,8 @@ package com.example.miniavito.service.facade;
 
 import com.example.miniavito.bean.AnnonceImmobilier;
 import com.example.miniavito.bean.TypeImmobilier;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 public interface AnnoceImmobilierService {
@@ -17,7 +17,7 @@ public interface AnnoceImmobilierService {
     List<AnnonceImmobilier> findByMontantLessThanEqual(double montant);
     List<AnnonceImmobilier> findByMontantGreaterThanEqual(double montant);
     List<AnnonceImmobilier> findByPrixNonExistant();
-    @Transactional
+ @Transactional
     int deleteByRef(String ref);
 
     @Transactional
