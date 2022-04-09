@@ -5,9 +5,10 @@ import com.example.miniavito.bean.TypeImmobilier;
 import com.example.miniavito.service.facade.AnnoceImmobilierService;
 import com.example.miniavito.service.impl.AnnonceImmobilierImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.transaction.Transactional;
+
 import java.util.List;
 
 @RestController
@@ -42,7 +43,7 @@ public class AnnonceImmobilierRest {
         return annoceImmobilierService.findByMontantLessThanEqual(montant);
     }
     @GetMapping("/findByMontantGreaterThanEqual/montant/{montant}")
-    public List<AnnonceImmobilier> findByMontantGreaterThanEqual(double montant) {
+    public List<AnnonceImmobilier> findByMontantGreaterThanEqual(@PathVariable double montant) {
         return annoceImmobilierService.findByMontantGreaterThanEqual(montant);
     }
   @GetMapping("/findByPrixNonExistant")

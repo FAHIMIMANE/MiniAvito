@@ -67,7 +67,7 @@ public class AnnonceVoitureServiceImpl implements AnnonceVoitureService {
     public List<AnnonceVoiture> findByUserRef(String ref) {
         return annonceVoitureDao.findByUserRef(ref);
     }
-@Transactional
+
     @Override
     @Transactional
     public int deleteByUserRef(String ref) {

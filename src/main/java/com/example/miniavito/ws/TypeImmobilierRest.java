@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/annonceimmobilier")
+@RequestMapping("/api/v1/typeImmobilierr")
 public class TypeImmobilierRest {
     @GetMapping("/ref/{ref}")
     public TypeImmobilier findByRef(@PathVariable String ref) {
