@@ -1,5 +1,9 @@
 package com.example.miniavito.bean;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Fetch;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -35,7 +39,7 @@ public class User {
     public void setRef(String ref) {
         this.ref = ref;
     }
-
+    @JsonBackReference (value = "user-login")
     public String getLogin() {
         return login;
     }
@@ -43,7 +47,7 @@ public class User {
     public void setLogin(String login) {
         this.login = login;
     }
-
+    @JsonBackReference
     public String getPassword() {
         return password;
     }
@@ -51,7 +55,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
+    @JsonBackReference (value = "user-prof")
     public boolean isProf() {
         return prof;
     }
@@ -59,7 +63,7 @@ public class User {
     public void setProf(boolean prof) {
         this.prof = prof;
     }
-
+    @JsonBackReference (value = "user-blocked")
     public boolean isBlocked() {
         return blocked;
     }

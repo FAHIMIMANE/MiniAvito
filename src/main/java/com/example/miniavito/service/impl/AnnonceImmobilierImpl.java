@@ -43,10 +43,16 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
 
 
 
+
    @Transactional
     @Override
     public int deleteByRef(String ref) {
         return annonceImmobilierDao.deleteByRef(ref);
+    }
+    @Transactional
+    @Override
+    public int deleteByTypeImmobilierRef(String ref) {
+        return annonceImmobilierDao.deleteByTypeImmobilierRef(ref);
     }
 
     @Override

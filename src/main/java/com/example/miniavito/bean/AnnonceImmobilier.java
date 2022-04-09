@@ -10,7 +10,7 @@ public class AnnonceImmobilier {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String ref;
-    @ManyToOne (fetch = FetchType.LAZY)
+    @ManyToOne
     private  User user;
     @ManyToOne
     private TypeImmobilier typeImmobilier;
