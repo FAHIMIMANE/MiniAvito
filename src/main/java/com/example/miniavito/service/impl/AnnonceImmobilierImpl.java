@@ -123,7 +123,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
         return user==null;
     }
     private boolean isTypeImmobilierExist(TypeImmobilier typeImmobilier){
-        return typeImmobilier==null;
+        return typeImmobilierService.findByRef(typeImmobilier.getRef())==null;
 
 }
     private boolean isPrixNegatif(double prix){
