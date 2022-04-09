@@ -45,7 +45,14 @@ public class UserRest {
     public int seConnecter(@RequestBody User user) {
         return userService.seConnecter( user);
     }
-
+     @PutMapping("/bloquer/login/{login}")
+    public int bloquer(@PathVariable String login) {
+        return userService.bloquer(login);
+    }
+    @PutMapping("/debloquer/login/{login}")
+    public int debloquer(@PathVariable String login) {
+        return userService.debloquer(login);
+    }
 
     @Autowired
     private UserServiceImpl userService;

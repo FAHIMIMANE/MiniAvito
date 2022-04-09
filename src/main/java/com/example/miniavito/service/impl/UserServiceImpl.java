@@ -1,7 +1,5 @@
 package com.example.miniavito.service.impl;
 
-import com.example.miniavito.bean.AnnonceHeureSuplementaire;
-import com.example.miniavito.bean.AnnonceImmobilier;
 import com.example.miniavito.bean.User;
 import com.example.miniavito.dao.UserDao;
 import com.example.miniavito.service.facade.*;
@@ -94,7 +92,19 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-
+    @Override
+    public int debloquer(String login) {
+        User user1 = findByLogin(login);
+        if (user1 == null)
+            return -1;
+        else if (user1.isBlocked() == false)
+            return -2;
+        else {
+            user1.setBlocked(false);
+            userDao.save(user1);
+            return 1;
+        }
+    }
 
     @Autowired
     private UserDao userDao;

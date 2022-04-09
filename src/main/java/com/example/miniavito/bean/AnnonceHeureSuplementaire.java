@@ -28,7 +28,6 @@ public class AnnonceHeureSuplementaire {
     }
 
     @ManyToOne
-    @JsonIgnore
     private User user;
     private  String titre;
     private  String description;
