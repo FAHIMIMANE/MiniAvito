@@ -15,8 +15,8 @@ public interface AnnonceImmobilierDao extends JpaRepository<AnnonceImmobilier,Lo
     AnnonceImmobilier findByRef(String ref);
     List<AnnonceImmobilier>  findByRefVille(String refVille);
     List<AnnonceImmobilier>  findByTypeAnnonce(String typeAnnonce);
-    List<AnnonceImmobilier> findByMontantLessThanEqual(double montant);
-    List<AnnonceImmobilier> findByMontantGreaterThanEqual(double montant);
+    List<AnnonceImmobilier> findByPrixLessThanEqual(double prix);
+    List<AnnonceImmobilier> findByPrixGreaterThanEqual(double prix);
     @Query("SELECT a from AnnonceImmobilier a where a.prix is null")
     List<AnnonceImmobilier> findByPrixNonExistant();
 }

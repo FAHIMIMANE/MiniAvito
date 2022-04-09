@@ -65,14 +65,15 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     }
 
     @Override
-    public List<AnnonceImmobilier> findByMontantLessThanEqual(double montant) {
-        return annonceImmobilierDao.findByMontantLessThanEqual(montant);
+    public List<AnnonceImmobilier> findByPrixLessThanEqual(double prix) {
+        return null;
     }
 
     @Override
-    public List<AnnonceImmobilier> findByMontantGreaterThanEqual(double montant) {
-        return annonceImmobilierDao.findByMontantGreaterThanEqual(montant);
+    public List<AnnonceImmobilier> findByPrixGreaterThanEqual(double prix) {
+        return null;
     }
+
 
     @Override
     public List<AnnonceImmobilier> findByPrixNonExistant() {

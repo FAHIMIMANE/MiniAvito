@@ -14,8 +14,8 @@ public interface AnnoceImmobilierService {
     AnnonceImmobilier findByRef(String ref);
     List<AnnonceImmobilier> findByRefVille(String refVille);
     List<AnnonceImmobilier> findByTypeAnnonce(String typeAnnonce);
-    List<AnnonceImmobilier> findByMontantLessThanEqual(double montant);
-    List<AnnonceImmobilier> findByMontantGreaterThanEqual(double montant);
+    List<AnnonceImmobilier> findByPrixLessThanEqual(double prix);
+    List<AnnonceImmobilier> findByPrixGreaterThanEqual(double prix);
     List<AnnonceImmobilier> findByPrixNonExistant();
  @Transactional
     int deleteByRef(String ref);
