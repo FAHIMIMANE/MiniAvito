@@ -75,6 +75,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     }
 
 
+
     @Override
     public List<AnnonceImmobilier> findByPrixNonExistant() {
         return annonceImmobilierDao.findByPrixNonExistant();
@@ -123,7 +124,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
         return user==null;
     }
     private boolean isTypeImmobilierExist(TypeImmobilier typeImmobilier){
-        return typeImmobilierService.findByRef(typeImmobilier.getRef())==null;
+        return typeImmobilier==null;
 
 }
     private boolean isPrixNegatif(double prix){
