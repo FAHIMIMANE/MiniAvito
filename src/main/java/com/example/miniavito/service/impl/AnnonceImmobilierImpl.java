@@ -75,6 +75,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     }
 
 
+
     @Override
     public List<AnnonceImmobilier> findByPrixNonExistant() {
         return annonceImmobilierDao.findByPrixNonExistant();

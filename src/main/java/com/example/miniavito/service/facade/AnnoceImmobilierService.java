@@ -17,10 +17,10 @@ public interface AnnoceImmobilierService {
     List<AnnonceImmobilier> findByPrixLessThanEqual(double prix);
     List<AnnonceImmobilier> findByPrixGreaterThanEqual(double prix);
     List<AnnonceImmobilier> findByPrixNonExistant();
- @Transactional
+
     int deleteByRef(String ref);
 
-    @Transactional
+
     int deleteByUserRef(String ref);
 
 
