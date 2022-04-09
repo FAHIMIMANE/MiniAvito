@@ -96,7 +96,7 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
             return -1;
         else if(isUserExist(annonceImmobilier.getUser())==true)
             return -2;
-        else if(isTypeImmobilierExist(annonceImmobilier.getTypeImmobilier())==true)
+        else if(typeImmobilierService.findByRef(annonceImmobilier.getTypeImmobilier().getRef())==null)
             return -3;
         else if (isPrixNegatif(annonceImmobilier.getPrix())==true)
             return -4;
@@ -123,8 +123,8 @@ public class AnnonceImmobilierImpl implements AnnoceImmobilierService {
     private boolean isUserExist(User user){
         return user==null;
     }
-    private boolean isTypeImmobilierExist(TypeImmobilier typeImmobilier){
-        return typeImmobilier==null;
+   /* private boolean isTypeImmobilierExist(TypeImmobilier typeImmobilier){
+        return typeImmobilier==null;*/
 
 }
     private boolean isPrixNegatif(double prix){
