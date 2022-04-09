@@ -13,6 +13,7 @@ public interface VetementAnnonceService {
     VetementAnnonce findByMarque (String marque);
     int save(VetementAnnonce vetementAnnonce);
     int deleteByRef(String ref);
+    int deleteByUserRef(String ref);
     VetementAnnonce findByPrixIsGreaterThanEqual(double prix);
     VetementAnnonce findByStyle(String style);
     VetementAnnonce findByCategories(String categories);

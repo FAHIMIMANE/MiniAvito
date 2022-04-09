@@ -81,6 +81,11 @@ public class VetementAnnonceServiceImpl implements VetementAnnonceService {
     }
 
     @Override
+    public int deleteByUserRef(String ref) {
+        return vetementAnnonceDao.deleteByUserRef(ref);
+    }
+
+    @Override
     public VetementAnnonce findByPrixIsGreaterThanEqual(double prix) {
         return vetementAnnonceDao.findByPrixIsGreaterThanEqual(prix);
     }

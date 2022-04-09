@@ -14,6 +14,7 @@ public interface VetementAnnonceDao extends JpaRepository<VetementAnnonce,Long> 
     VetementAnnonce findByPrixIsLessThanEqual(double prix);
     VetementAnnonce findByMarque (String marque);
     int deleteByRef(String ref);
+    int deleteByUserRef(String ref);
     VetementAnnonce findByPrixIsGreaterThanEqual(double prix);
     VetementAnnonce findByStyle(String style);
     VetementAnnonce findByCategories(String categories);
