@@ -62,7 +62,7 @@ public class UserServiceImpl implements UserService {
             int  res5 = vetementAnnonceService.deleteByUserRef(ref);
             int  res6 = annonceAppareilInformatiqueService.deleteByUserRef(ref);
             int res4 = userDao.deleteByRef(ref);
-            return res1+res2+res3+res4+res6 ;
+            return res1+res2+res3+res4+res6+res5 ;
 
         }
     }
