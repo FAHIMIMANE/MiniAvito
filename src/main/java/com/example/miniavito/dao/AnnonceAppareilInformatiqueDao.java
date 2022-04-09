@@ -14,6 +14,7 @@ public interface AnnonceAppareilInformatiqueDao extends JpaRepository<AnnonceApp
     List<AnnonceAppareilInformatique> findByPrixBetween(double prix1,double prix2);
     List<AnnonceAppareilInformatique> findByCategorieRef(String ref);
     int deleteByRef(String ref);
+    int deleteByUserRef(String ref);
 
 
 }

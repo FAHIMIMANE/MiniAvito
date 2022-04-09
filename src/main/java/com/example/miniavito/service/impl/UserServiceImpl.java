@@ -61,8 +61,9 @@ public class UserServiceImpl implements UserService {
             int  res1 = annonceHeureSuplementaire.deleteByUserRef(ref);
             int  res2 = annonceImmobilier.deleteByUserRef(ref);
             int  res3 = annonceVoitureService.deleteByUserRef(ref);
+            int  res6 = annonceAppareilInformatiqueService.deleteByUserRef(ref);
             int res4 = userDao.deleteByRef(ref);
-            return res1+res2+res3+res4 ;
+            return res1+res2+res3+res4+res6 ;
 
         }
     }
@@ -104,4 +105,6 @@ public class UserServiceImpl implements UserService {
     private AnnoceImmobilierService annonceImmobilier;
     @Autowired
     private AnnonceVoitureService annonceVoitureService;
+    @Autowired
+    private AnnonceAppareilInformatiqueService annonceAppareilInformatiqueService;
 }
